@@ -49,15 +49,28 @@
             margin: 0 auto;
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
         }
 
         .logo span {
             color: var(--accent-gold);
-            font-size: 1rem;
-            display: block;
+            font-size: 0.9rem;
+            font-style: italic;
         }
 
         .nav-links {
@@ -281,14 +294,14 @@
             font-size: 0.95rem;
         }
 
-        /* Cargo Tracker Section */
+        /* Tracker Section */
         .tracker {
             padding: 5rem 5%;
             background: white;
         }
 
         .tracker-box {
-            max-width: 600px;
+            max-width: 1000px;
             margin: 0 auto;
             background: linear-gradient(135deg, var(--kenyan-green), var(--kenyan-black));
             padding: 3rem;
@@ -313,6 +326,7 @@
             gap: 1rem;
             flex-wrap: wrap;
             justify-content: center;
+            margin-bottom: 1rem;
         }
 
         .tracker-form input {
@@ -323,7 +337,6 @@
             border-radius: 50px;
             font-size: 1rem;
         }
-
 
         .tracker-form button {
             padding: 1rem 2rem;
@@ -338,6 +351,181 @@
 
         .tracker-form button:hover {
             background: #8B0000;
+        }
+
+        /* Tab Navigation */
+        .tracker-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tab-btn i {
+            font-size: 1rem;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--kenyan-red);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-color: var(--kenyan-red);
+        }
+
+        /* Results area */
+        .tracker-results {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            color: #333;
+            text-align: left;
+            margin-top: 2rem;
+            display: none;
+            max-height: 500px;
+            overflow-y: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .tracker-results.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Table styling */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            background: var(--kenyan-green);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            position: sticky;
+            top: 0;
+        }
+
+        .data-table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table tr:hover {
+            background: #f5f5f5;
+        }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-valid {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-expired {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        /* Search filters */
+        .search-filter {
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.6rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: var(--kenyan-black);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .filter-btn:hover {
+            background: var(--kenyan-green);
+        }
+
+        /* Export buttons */
+        .export-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            justify-content: flex-end;
+        }
+
+        .export-btn {
+            padding: 0.4rem 1rem;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .export-btn:hover {
+            background: var(--kenyan-green);
+            color: white;
+            border-color: var(--kenyan-green);
         }
 
         /* About Section */
@@ -588,9 +776,18 @@
             .tracker-form button {
                 width: 100%;
             }
+            
+            .tracker-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
-        /* Active state for mobile menu (simplified) */
+        /* Active state for mobile menu */
         .nav-active {
             display: flex !important;
             flex-direction: column;
@@ -601,24 +798,21 @@
             background: var(--kenyan-black);
             padding: 2rem;
             text-align: center;
+            z-index: 999;
+        }
+        
+        .nav-active li {
+            margin: 0.5rem 0;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-        <header>
+    <header>
         <nav>
-            <div class="logo" style="display: flex; align-items: center; gap: 15px;">
-                <!-- Transparent PNG Logo (Red Background) -->
-                <img src="images/logo.png"
-                     alt="Daycan Trading Logo"
-                     style="height: 60px; width: auto; border-radius: 8px;
-                            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                            transition: transform 0.3s ease;"
-                     onmouseover="this.style.transform='scale(1.05)'"
-                     onmouseout="this.style.transform='scale(1)'">
-                <!-- Tagline -->
-                <span style="color: var(--accent-gold); font-size: 0.9rem; font-style: italic;">Bridging Mombasa port to Your Doorstep</span>
+            <div class="logo">
+                <img src="images/logo.png" alt="Daycan Trading Logo">
+                <span>Bridging Port Mombasa to Your Doorstep</span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
@@ -736,22 +930,74 @@
         </div>
     </section>
 
-        <!-- Cargo Tracker Section - Search by Truck Number -->
+    <!-- Fleet Management Tracker Section -->
     <section class="tracker" id="tracker">
         <div class="tracker-box">
-            <h3><i class="fas fa-truck"></i> Track Your Truck</h3>
-            <p>Enter your Truck Registration Number to see real-time location and status</p>
-            <div class="tracker-form">
-                <input type="text" id="truckSearchInput" placeholder="e.g., KDV 852U, KDB 987Z, KCF 541J" value="">
-                <button onclick="searchTruck()"><i class="fas fa-search"></i> Track Now</button>
+            <h3><i class="fas fa-truck"></i> Daycan Fleet Management</h3>
+            <p>Search and track your trucks, inspections, insurance, and speed governor records</p>
+            
+            <!-- Tab Navigation -->
+            <div class="tracker-tabs">
+                <button class="tab-btn active" onclick="switchTab('trucks')">
+                    <i class="fas fa-truck"></i> Truck Location
+                </button>
+                <button class="tab-btn" onclick="switchTab('inspection')">
+                    <i class="fas fa-clipboard-check"></i> Inspection
+                </button>
+                <button class="tab-btn" onclick="switchTab('insurance')">
+                    <i class="fas fa-shield-alt"></i> Insurance
+                </button>
+                <button class="tab-btn" onclick="switchTab('speed')">
+                    <i class="fas fa-tachometer-alt"></i> Speed Governor
+                </button>
+            </div>
+
+            <!-- Truck Location Search -->
+            <div id="truckSearchTab">
+                <div class="tracker-form">
+                    <input type="text" id="truckSearchInput" placeholder="Enter Truck Number e.g., KDV 852U, KDB 987Z" value="">
+                    <button onclick="searchTruck()"><i class="fas fa-search"></i> Track Now</button>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;"><i class="fas fa-info-circle"></i> Search by truck registration</p>
+            </div>
+
+            <!-- Inspection Search Tab (Hidden) -->
+            <div id="inspectionSearchTab" style="display: none;">
+                <div class="search-filter">
+                    <input type="text" id="inspectionSearchInput" class="filter-input" placeholder="Search by Truck or Trailer Reg...">
+                    <button onclick="searchInspection()" class="filter-btn"><i class="fas fa-search"></i> Search</button>
+                    <button onclick="clearInspectionSearch()" class="filter-btn" style="background: #666;"><i class="fas fa-times"></i> Clear</button>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;"><i class="fas fa-info-circle"></i> Search by truck or trailer registration</p>
+            </div>
+
+            <!-- Insurance Search Tab (Hidden) -->
+            <div id="insuranceSearchTab" style="display: none;">
+                <div class="search-filter">
+                    <input type="text" id="insuranceSearchInput" class="filter-input" placeholder="Search by Truck or Trailer Reg...">
+                    <button onclick="searchInsurance()" class="filter-btn"><i class="fas fa-search"></i> Search</button>
+                    <button onclick="clearInsuranceSearch()" class="filter-btn" style="background: #666;"><i class="fas fa-times"></i> Clear</button>
+                </div>
+                <div class="export-buttons">
+                    <button onclick="showExpiringInsurance()" class="export-btn"><i class="fas fa-exclamation-triangle"></i> Show Expiring Soon</button>
+                    <button onclick="showAllInsurance()" class="export-btn"><i class="fas fa-list"></i> Show All</button>
+                </div>
+            </div>
+
+            <!-- Speed Governor Search Tab (Hidden) -->
+            <div id="speedSearchTab" style="display: none;">
+                <div class="search-filter">
+                    <input type="text" id="speedSearchInput" class="filter-input" placeholder="Search by Truck or Trailer Reg...">
+                    <button onclick="searchSpeed()" class="filter-btn"><i class="fas fa-search"></i> Search</button>
+                    <button onclick="clearSpeedSearch()" class="filter-btn" style="background: #666;"><i class="fas fa-times"></i> Clear</button>
+                </div>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;"><i class="fas fa-info-circle"></i> Speed governor calibration dates</p>
             </div>
             
-            <!-- Search Results Display -->
-            <div id="trackerResults" class="tracker-results" style="display: none; background: white; border-radius: 10px; padding: 1.5rem; margin-top: 2rem; text-align: left; color: #333;">
-                <!-- Results will be populated here by JavaScript -->
+            <!-- Results Display Area -->
+            <div id="trackerResults" class="tracker-results">
+                <!-- Results will be populated by JavaScript -->
             </div>
-            
-            <p style="margin-top: 1rem; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Enter truck number like: KDV 852U, KDB 987Z, KCF 541J</p>
         </div>
     </section>
 
@@ -783,7 +1029,7 @@
         </div>
     </section>
 
-     <!-- Contact Section -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-container">
@@ -791,7 +1037,7 @@
                 <h3>Contact Information</h3>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>NSSF Building, Mombasa, Kenya<br>P.O. Box 43144-80100</p>
+                    <p>NSSF Building, Mombasa, Kenya<br>P.O. Box 41140-80100</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
@@ -849,7 +1095,6 @@
     </a>
 
     <!-- Footer -->
-        <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -896,412 +1141,400 @@
         </div>
     </footer>
 
-    <!-- Simple JavaScript for Mobile Menu -->
+    <!-- JavaScript -->
     <script>
+        // ==================== DATA FROM EXCEL SHEETS ====================
+        
+        // TRUCK LOCATION DATA
+        const truckData = [
+            { reg: "KDV 852U", trailer: "ZJ 0689", location: "At Salgaa Headed to Mombasa with Full container", container: "MRKU8254263 (20FT)", driver: "HENRY MAINA", phone: "0726646658", id: "21411779", status: "On Motion", customer: "Joseph Ojiro" },
+            { reg: "KDV 854U", trailer: "ZJ 0688", location: "At Nakuru Headed to Mombasa with Full container", container: "MNBU4610160 (40FT)", driver: "ELVANS NDOHO", phone: "0723645637", id: "26351949", status: "On Motion", customer: "Joseph Ojiro" },
+            { reg: "KDS 201A", trailer: "ZE3827", location: "At Gate 24 port with Full Export Reefer container", container: "MNBU3589285 (40FT)", driver: "LAZARUS MURAGE", phone: "0714925175", id: "24440422", status: "Waiting to gate in", customer: "Lutor Uganda Limited" },
+            { reg: "KDG 618U", trailer: "ZE5661", location: "At Hass changamwe Empty waiting to Load at Port Today", container: "Waiting", driver: "LABAN BENSON", phone: "0715605014", id: "26371504", status: "Waiting to Load", customer: "Bandeko Uganda Limited" },
+            { reg: "KDB 987Z", trailer: "ZG 6403", location: "At Alpha Depot Loading Empty Reefer Container for kampala", container: "Waiting", driver: "DOMINIC MWANIKI", phone: "0769281260", id: "30412588", status: "Loading Empty Reefer", customer: "Bandeko Uganda Ltd" },
+            { reg: "KDA 839L", trailer: "ZG3609", location: "At Clients Premise Busia with Empty reefer Container", container: "MNBU3433158 (40FT)", driver: "SAMUEL GATERU", phone: "0708454289", id: "23503679", status: "Waiting to Load Export", customer: "Lutor Uganda Limited" },
+            { reg: "KCF 541J", trailer: "ZE 0583", location: "At malaba Boarder Headed Kampala with Full Container", container: "TLLU2750567 (20FT)", driver: "DUNCAN JUMA", phone: "0113606009", id: "34151621", status: "Waiting for Boarder Clearance", customer: "Francis Maina" },
+            { reg: "KCY 665P", trailer: "ZF 0796", location: "At Hass Bonje Parking", container: "N/A", driver: "N/A", phone: "N/A", id: "N/A", status: "Under Repair", customer: "N/A" },
+            { reg: "KCW 651E", trailer: "ZE 1554", location: "At Lake Bounty Factory with Full Export Reefer Container", container: "MNBU3648670 (40FT)", driver: "AMOS OKOTH ODINDO", phone: "0727632982", id: "24111273", status: "Waiting for Documentation", customer: "Lutor Uganda Limited" },
+            { reg: "KCN 591W", trailer: "ZE 7305", location: "At Port with Full container for Kampala", container: "EMCU8799380 (40FT)", driver: "NUHU ALWODI", phone: "0723279104", id: "20941479", status: "Waiting to gate out", customer: "Filken" },
+            { reg: "KCK 562L", trailer: "ZF 3953", location: "At Jua Kali Headed kampala with Full Container", container: "TXGU5741323 (40FT)", driver: "FERNADES KYALO", phone: "0715866994", id: "28070221", status: "On Motion", customer: "Francis Maina" },
+            { reg: "KCM 642D", trailer: "ZF 6259", location: "At Malaba Boarder Headed Kampala with Full Container", container: "GLDU9892167 (20FT)", driver: "EVANS WESONGA", phone: "0729244485", id: "27526658", status: "Waiting for Boarder Clearance", customer: "Bandeko Uganda Limited" },
+            { reg: "KDC 188H", trailer: "ZF1478", location: "At Transtrailer under tyres fitting", container: "N/A", driver: "N/A", phone: "N/A", id: "N/A", status: "Being Fitted tyres", customer: "N/A" },
+            { reg: "KCH 807F", trailer: "ZC 9174", location: "At Tsavo Headed Kampala with Empty Reefer container", container: "CGMU5660993 (40FT)", driver: "ALPHONCE MWAKABA", phone: "0759007908", id: "29735928", status: "On Motion", customer: "Lutor Uganda Limited" },
+            { reg: "KCZ 843E", trailer: "ZE 1383", location: "At Busia Boarder Headed kampala with Full container", container: "TRHU7663724 (20FT)", driver: "DENIS JUMA", phone: "0789594148", id: "28911507", status: "Waiting for Boarder Clearance", customer: "Francis Maina" },
+            { reg: "KCF547J", trailer: "ZG 9286", location: "At Nyama Choma Enroute Kampala with Full Container", container: "CMAU1924960 (20FT)", driver: "FREDRICK MWARURA", phone: "0719366346", id: "24920294", status: "On Motion", customer: "Francis Maina" },
+            { reg: "KDJ 604X", trailer: "", location: "At Clients Premise Adding more cargo for delivery at malindi", container: "LOOSE CARGO", driver: "DERRICK NYANZA", phone: "0723144542", id: "33852760", status: "Loading", customer: "" }
+        ];
+
+        // INSPECTION DATA
+        const inspectionData = [
+            { truck: "KDA 839L", truckDate: "23.09.2026", truckAc: "DAYCAN", trailer: "ZG 3609", trailerDate: "23.09.2026", trailerAc: "DAYCAN" },
+            { truck: "KCK 562L", truckDate: "02.02.2027", truckAc: "DAYCAN", trailer: "ZF 3953", trailerDate: "23.09.2026", trailerAc: "DAYCAN" },
+            { truck: "KCH 807F", truckDate: "20.01.2026", truckAc: "DAYCAN", trailer: "ZC 9174", trailerDate: "20.01.2026", trailerAc: "DAYCAN" },
+            { truck: "KDB 987Z", truckDate: "23.09.2026", truckAc: "DAYCAN", trailer: "ZG 6403", trailerDate: "20.08.2026", trailerAc: "DAYCAN" },
+            { truck: "KCM 642D", truckDate: "23.09.2026", truckAc: "DAYCAN", trailer: "ZF 6259", trailerDate: "23.09.2026", trailerAc: "DAYCAN" },
+            { truck: "KCW 651E", truckDate: "23.09.2026", truckAc: "DAYCAN", trailer: "ZE 1554", trailerDate: "07.01.2026", trailerAc: "ENOS" },
+            { truck: "KCY 665P", truckDate: "07.01.2026", truckAc: "DAYCAN", trailer: "ZF 0796", trailerDate: "20.01.2026", trailerAc: "DAYCAN" },
+            { truck: "KDG 618U", truckDate: "23.09.2026", truckAc: "DAYCAN", trailer: "ZE 5661", trailerDate: "07.01.2026", trailerAc: "ENOS" },
+            { truck: "KCN 591W", truckDate: "26.05.2026", truckAc: "DAYCAN", trailer: "ZE 7305", trailerDate: "07.01.2026", trailerAc: "ENOS" },
+            { truck: "KDC 188H", truckDate: "23.09.2026", truckAc: "DAYCAN", trailer: "ZF 1478", trailerDate: "17.07.2025", trailerAc: "DAYCAN" },
+            { truck: "KCF 541J", truckDate: "28.05.2026", truckAc: "DAYCAN", trailer: "ZE 0583", trailerDate: "07.01.2026", trailerAc: "ENOS" },
+            { truck: "KDS 201A", truckDate: "17.01.2026", truckAc: "DAYCAN", trailer: "ZE 3827", trailerDate: "17.01.2026", trailerAc: "DAYCAN" },
+            { truck: "KCZ 843E", truckDate: "25.09.2026", truckAc: "DAYCAN", trailer: "ZE 1383", trailerDate: "23.08.2026", trailerAc: "DAYCAN" },
+            { truck: "KDJ 604X", truckDate: "26.05.2026", truckAc: "", trailer: "", trailerDate: "", trailerAc: "" },
+            { truck: "KCF 547J", truckDate: "BOOKED", truckAc: "", trailer: "ZG9286", trailerDate: "05.02.2027", trailerAc: "" }
+        ];
+
+        // INSURANCE DATA
+        const insuranceData = [
+            { truck: "KDA 839L", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZG 3609", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCK 562L", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZF 3953", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCH 807F", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZC 9174", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KDB 987Z", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZG 6403", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCM 642D", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZF 6259", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCW 651E", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZE 1554", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCY 665P", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZF 0796", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KDG 618U", truckDate: "31.12.2026", truckType: "COMP", trailer: "ZE 5661", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCN 591W", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZE 7305", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KDC 188H", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZF 1478", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCF 541J", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZE 0583", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KDS 201A", truckDate: "31.12.2026", truckType: "COMP", trailer: "ZE 3827", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCZ 843E", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZE 1383", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KDJ 604X", truckDate: "31.12.2026", truckType: "COMP", trailer: "", trailerDate: "31.12.2026", trailerType: "" },
+            { truck: "KDV 854U", truckDate: "31.12.2026", truckType: "COMP", trailer: "ZJ 0688", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KDV 852U", truckDate: "31.12.2026", truckType: "COMP", trailer: "ZJ 0689", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KCF 547J", truckDate: "31.12.2026", truckType: "TPO", trailer: "ZG 9286", trailerDate: "31.12.2026", trailerType: "TPO" },
+            { truck: "KDB 011M", truckDate: "31.12.2026", truckType: "COMP", trailer: "", trailerDate: "31.12.2026", trailerType: "" }
+        ];
+
+        // SPEED GOVERNOR DATA
+        const speedData = [
+            { truck: "KDA 839L", truckDate: "23.09.2026", trailer: "ZG 3609", trailerDate: "" },
+            { truck: "KCK 562L", truckDate: "23.09.2026", trailer: "ZF 3953", trailerDate: "" },
+            { truck: "KCH 807F", truckDate: "23.09.2026", trailer: "ZC 9174", trailerDate: "" },
+            { truck: "KDB 987Z", truckDate: "23.09.2026", trailer: "ZG 6403", trailerDate: "" },
+            { truck: "KCM 642D", truckDate: "23.09.2026", trailer: "ZF 6259", trailerDate: "" },
+            { truck: "KCW 651E", truckDate: "20.08.2026", trailer: "ZE 1554", trailerDate: "" },
+            { truck: "KCY 665P", truckDate: "23.09.2026", trailer: "ZF 0796", trailerDate: "" },
+            { truck: "KDG 618U", truckDate: "23.09.2026", trailer: "ZE 5661", trailerDate: "" },
+            { truck: "KCN 591W", truckDate: "23.09.2026", trailer: "ZE 7305", trailerDate: "" },
+            { truck: "KDC 188H", truckDate: "23.09.2026", trailer: "ZF 1478", trailerDate: "" },
+            { truck: "KCF 541J", truckDate: "23.09.2026", trailer: "ZE 0583", trailerDate: "" },
+            { truck: "KDS 201A", truckDate: "07.01.2026", trailer: "ZE 3827", trailerDate: "" },
+            { truck: "KCZ 843E", truckDate: "23.09.2026", trailer: "ZE 1383", trailerDate: "" },
+            { truck: "KDJ 604X", truckDate: "25.05.2026", trailer: "", trailerDate: "" },
+            { truck: "KDU 852U", truckDate: "", trailer: "ZJ 0689", trailerDate: "" },
+            { truck: "KDU 854U", truckDate: "", trailer: "ZJ 0688", trailerDate: "" }
+        ];
+
+        // ==================== UTILITY FUNCTIONS ====================
         function toggleMenu() {
-            var navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('nav-active');
+            document.getElementById('navLinks').classList.toggle('nav-active');
         }
 
-        // Close menu when a link is clicked
+        // Close menu when link clicked
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('nav-active');
             });
         });
 
-        // Smooth scrolling for anchor links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Form submission handler
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your request! We will contact you shortly via WhatsApp or phone.');
-            this.reset();
-        });
-    </script>
-        <!-- Truck Tracking JavaScript with Data from Excel -->
-    <script>
-        // Truck data from your Excel sheet (TRUCKS UPDATE sheet)
-        const truckData = [
-            {
-                reg: "KDV 852U",
-                trailer: "ZJ 0689",
-                location: "At Clients Premise Nairobi",
-                container: "MNBU5410691 (40FT)",
-                driver: "HENRY MAINA",
-                phone: "0726646658",
-                id: "21411779",
-                status: "Offloading Cargo",
-                customer: "Best Buy Distributors"
-            },
-            {
-                reg: "KDV 854U",
-                trailer: "ZJ 0688",
-                location: "At Busia Boarder Ugandan Side Headed MSa with Full Export Reefer Container",
-                container: "MNBU4610160 (40FT)",
-                driver: "ELVANS NDOHO",
-                phone: "0723645637",
-                id: "26351949",
-                status: "Waiting for boarder Clearance",
-                customer: "Lutor Uganda limited"
-            },
-            {
-                reg: "KDS 201A",
-                trailer: "ZE3827",
-                location: "At Gate 24 port with Full Export Reefer container",
-                container: "MNBU3589285 (40FT)",
-                driver: "LAZARUS MURAGE",
-                phone: "0714925175",
-                id: "24440422",
-                status: "Waiting to gate in to Offload & Load container for Filken",
-                customer: "Lutor Uganda Limited"
-            },
-            {
-                reg: "KDG 618U",
-                trailer: "ZE5661",
-                location: "At Hass changamwe Empty waiting to Load at Port Today",
-                container: "Waiting",
-                driver: "LABAN BENSON",
-                phone: "0715605014",
-                id: "26371504",
-                status: "Waiting to Load",
-                customer: "Bandeko Uganda Limited"
-            },
-            {
-                reg: "KDB 987Z",
-                trailer: "ZG 6403",
-                location: "At Alpha Depot Loading Empty Reefer Container for kampala",
-                container: "Waiting",
-                driver: "DOMINIC MWANIKI",
-                phone: "0769281260",
-                id: "30412588",
-                status: "Loading Empty Reefer Container",
-                customer: "Bandeko Uganda Ltd"
-            },
-            {
-                reg: "KDA 839L",
-                trailer: "ZG3609",
-                location: "At Busia Boarder Enroute MSA with Full Export Reefer Container",
-                container: "MNBU3433158 (40FT)",
-                driver: "SAMUEL GATERU",
-                phone: "0708454289",
-                id: "23503679",
-                status: "Waiting for Boarder clearance",
-                customer: "Lutor Uganda Limited"
-            },
-            {
-                reg: "KCF 541J",
-                trailer: "ZE 0583",
-                location: "At Clients Premise Uganda with Full Export Reefer Container",
-                container: "TLLU2750567 (20FT)",
-                driver: "DUNCAN JUMA",
-                phone: "0113606009",
-                id: "34151621",
-                status: "Under Mechanical Repair",
-                customer: "Francis Maina"
-            },
-            {
-                reg: "KCY 665P",
-                trailer: "ZF 0796",
-                location: "At Hass Bonje Parking",
-                container: "N/A",
-                driver: "N/A",
-                phone: "N/A",
-                id: "N/A",
-                status: "To be worked on his repair Next week",
-                customer: "N/A"
-            },
-            {
-                reg: "KCW 651E",
-                trailer: "ZE 1554",
-                location: "At Lake Bounty Factory Kampala Loading Export Cargo",
-                container: "MNBU3648670 (40FT)",
-                driver: "AMOS OKOTH ODINDO",
-                phone: "0727632982",
-                id: "24111273",
-                status: "Loading Export Cargo",
-                customer: "Lutor Uganda Limited"
-            },
-            {
-                reg: "KCN 591W",
-                trailer: "ZE 7305",
-                location: "At Mai mahiu Enroute MSA with Full Export Container",
-                container: "CAAU2423567 (20FT)",
-                driver: "NUHU ALWODI",
-                phone: "0723279104",
-                id: "20941479",
-                status: "On Motion",
-                customer: "Bandeko Uganda Limited"
-            },
-            {
-                reg: "KCK 562L",
-                trailer: "ZF 3953",
-                location: "At Malaba boarder kenyan Side headed MSA with Full Export Container",
-                container: "TXGU5741323 (40FT)",
-                driver: "FERNADES KYALO",
-                phone: "0715866994",
-                id: "28070221",
-                status: "Under Boarder Clearance",
-                customer: "Joseph Ojiro"
-            },
-            {
-                reg: "KCM 642D",
-                trailer: "ZF 6259",
-                location: "At Mazeras Enroute Kampala with Full Container",
-                container: "TIIU2276820 (20FT)",
-                driver: "EVANS WESONGA",
-                phone: "0729244485",
-                id: "27526658",
-                status: "On Motion",
-                customer: "Francis Maina"
-            },
-            {
-                reg: "KDC 188H",
-                trailer: "ZF1478",
-                location: "At Transtrailer under tyres fitting",
-                container: "N/A",
-                driver: "N/A",
-                phone: "N/A",
-                id: "N/A",
-                status: "Being Fitted tyres and Greasing",
-                customer: "N/A"
-            },
-            {
-                reg: "KCH 807F",
-                trailer: "ZC 9174",
-                location: "At Tsavo Headed Kampala with Empty Reefer container",
-                container: "CGMU5660993 (40FT)",
-                driver: "ALPHONCE MWAKABA",
-                phone: "0759007908",
-                id: "29735928",
-                status: "On Motion",
-                customer: "Lutor Uganda Limited"
-            },
-            {
-                reg: "KCZ 843E",
-                trailer: "ZE 1383",
-                location: "At Busia Boarder Headed kampala with Full container",
-                container: "TRHU7663724 (20FT)",
-                driver: "DENIS JUMA",
-                phone: "0789594148",
-                id: "28911507",
-                status: "Waiting for Boarder Clearance",
-                customer: "Francis Maina"
-            },
-            {
-                reg: "KCF547J",
-                trailer: "ZG 9286",
-                location: "At Nyama Choma Enroute Kampala with Full Container",
-                container: "CMAU1924960 (20FT)",
-                driver: "FREDRICK MWARURA",
-                phone: "0719366346",
-                id: "24920294",
-                status: "On Motion",
-                customer: "Francis Maina"
-            },
-            {
-                reg: "KDJ 604X",
-                trailer: "",
-                location: "At Clients Premise Adding more cargo for delivery at malindi",
-                container: "LOOSE CARGO",
-                driver: "DERRICK NYANZA",
-                phone: "0723144542",
-                id: "33852760",
-                status: "Loading",
-                customer: ""
-            }
-        ];
+        // ==================== TAB SWITCHING ====================
+        let currentTab = 'trucks';
 
-        // Function to search for truck by registration number
+        function switchTab(tabName) {
+            currentTab = tabName;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Hide all search tabs
+            document.getElementById('truckSearchTab').style.display = 'none';
+            document.getElementById('inspectionSearchTab').style.display = 'none';
+            document.getElementById('insuranceSearchTab').style.display = 'none';
+            document.getElementById('speedSearchTab').style.display = 'none';
+            
+            // Show selected tab
+            document.getElementById(tabName + 'SearchTab').style.display = 'block';
+            
+            // Show appropriate data
+            const resultsDiv = document.getElementById('trackerResults');
+            
+            if (tabName === 'trucks') {
+                resultsDiv.style.display = 'none';
+            } else if (tabName === 'inspection') {
+                showAllInspections();
+            } else if (tabName === 'insurance') {
+                showAllInsurance();
+            } else if (tabName === 'speed') {
+                showAllSpeed();
+            }
+        }
+
+        // ==================== TRUCK LOCATION FUNCTIONS ====================
         function searchTruck() {
             const input = document.getElementById('truckSearchInput').value.trim().toUpperCase();
             const resultsDiv = document.getElementById('trackerResults');
             
-            // Clear previous results
             resultsDiv.innerHTML = '';
+            resultsDiv.style.display = 'block';
             
             if (input === '') {
-                resultsDiv.style.display = 'block';
-                resultsDiv.innerHTML = '<div style="color: #666; text-align: center; padding: 1rem;"><i class="fas fa-exclamation-circle"></i> Please enter a truck registration number</div>';
+                resultsDiv.innerHTML = '<div style="color: #666; text-align: center;"><i class="fas fa-exclamation-circle"></i> Please enter a truck number</div>';
                 return;
             }
             
-            // Search for truck (partial match allowed)
-            const matchedTrucks = truckData.filter(truck => 
-                truck.reg.toUpperCase().includes(input) || 
-                input.includes(truck.reg.toUpperCase())
-            );
+            const matches = truckData.filter(t => t.reg.toUpperCase().includes(input));
             
-            if (matchedTrucks.length === 0) {
-                resultsDiv.style.display = 'block';
+            if (matches.length === 0) {
                 resultsDiv.innerHTML = `
-                    <div style="color: #666; text-align: center; padding: 1rem;">
-                        <i class="fas fa-truck fa-3x" style="color: #999; margin-bottom: 1rem;"></i>
-                        <h4 style="color: #333;">No truck found with registration: ${input}</h4>
-                        <p style="margin-top: 0.5rem;">Try these formats: KDV 852U, KDB 987Z, KCF 541J</p>
+                    <div style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-truck fa-3x" style="color: #999;"></i>
+                        <h4 style="margin: 1rem 0;">No truck found: ${input}</h4>
+                        <p>Try: KDV 852U, KDB 987Z, KCF 541J</p>
                     </div>
                 `;
             } else {
-                resultsDiv.style.display = 'block';
-                
-                // Display each matching truck (usually just one)
-                matchedTrucks.forEach(truck => {
-                    // Determine status color
-                    let statusColor = '#27ae60'; // green for good
-                    if (truck.status.toLowerCase().includes('waiting')) {
-                        statusColor = '#f39c12'; // orange for waiting
-                    } else if (truck.status.toLowerCase().includes('repair')) {
-                        statusColor = '#e74c3c'; // red for issues
-                    }
+                matches.forEach(truck => {
+                    let statusColor = truck.status.includes('Motion') ? '#27ae60' : 
+                                     truck.status.includes('Waiting') ? '#f39c12' : '#e74c3c';
                     
                     resultsDiv.innerHTML += `
-                        <div style="border-bottom: 1px solid #eee; padding: 1rem 0; ${matchedTrucks.indexOf(truck) > 0 ? 'border-top: 2px solid #ddd;' : ''}">
-                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="border-bottom: 1px solid #eee; padding: 1rem;">
+                            <div style="display: flex; gap: 1rem; align-items: center;">
                                 <i class="fas fa-truck" style="font-size: 2rem; color: var(--kenyan-red);"></i>
                                 <div>
-                                    <h4 style="font-size: 1.3rem; color: var(--kenyan-black);">${truck.reg} ${truck.trailer ? '/ ' + truck.trailer : ''}</h4>
-                                    <span style="background: ${statusColor}; color: white; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; display: inline-block;">
-                                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 0.3rem;"></i> ${truck.status}
+                                    <h4>${truck.reg} ${truck.trailer ? '/ ' + truck.trailer : ''}</h4>
+                                    <span style="background: ${statusColor}; color: white; padding: 0.2rem 1rem; border-radius: 50px; font-size: 0.8rem;">
+                                        ${truck.status}
                                     </span>
                                 </div>
                             </div>
-                            
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                                <div>
-                                    <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="color: var(--kenyan-red); width: 20px;"></i> <strong>Current Location:</strong></p>
-                                    <p style="font-weight: 500;">${truck.location}</p>
-                                </div>
-                                
-                                <div>
-                                    <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-box" style="color: var(--kenyan-green); width: 20px;"></i> <strong>Container:</strong></p>
-                                    <p>${truck.container}</p>
-                                </div>
-                                
-                                <div>
-                                    <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-user" style="color: var(--kenyan-black); width: 20px;"></i> <strong>Driver:</strong></p>
-                                    <p>${truck.driver} ${truck.driver !== 'N/A' ? '<br><small style="color: #666;">ID: ' + truck.id + '</small>' : ''}</p>
-                                </div>
-                                
-                                <div>
-                                    <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-phone" style="color: #27ae60; width: 20px;"></i> <strong>Contact:</strong></p>
-                                    <p>${truck.phone !== 'N/A' ? truck.phone : 'Not available'}</p>
-                                </div>
+                            <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 1rem;">
+                                <div><small>📍 Location:</small><br>${truck.location}</div>
+                                <div><small>📦 Container:</small><br>${truck.container}</div>
+                                <div><small>👤 Driver:</small><br>${truck.driver}</div>
+                                <div><small>📞 Phone:</small><br>${truck.phone}</div>
                             </div>
-                            
-                            ${truck.customer && truck.customer !== 'N/A' ? `
-                            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #ddd;">
-                                <p style="color: #666; font-size: 0.9rem;"><i class="fas fa-building" style="color: var(--kenyan-black);"></i> <strong>Customer:</strong> ${truck.customer}</p>
-                            </div>
-                            ` : ''}
+                            ${truck.customer ? `<div style="margin-top: 0.5rem;"><small>👥 Customer: ${truck.customer}</small></div>` : ''}
                         </div>
                     `;
                 });
-                
-                // Add quick actions
-                resultsDiv.innerHTML += `
-                    <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #eee;">
-                        <a href="https://wa.me/254720278970?text=I'm%20tracking%20truck%20${encodeURIComponent(matchedTrucks[0].reg)}%20and%20need%20more%20information" class="btn-whatsapp" style="background: #25D366; color: white; padding: 0.5rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 0.9rem;" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Ask on WhatsApp
-                        </a>
-                        <a href="#contact" style="background: var(--kenyan-black); color: white; padding: 0.5rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 0.9rem;" onclick="document.getElementById('truckSearchInput').value='${matchedTrucks[0].reg}';">
-                            <i class="fas fa-phone"></i> Call Dispatch
-                        </a>
-                    </div>
-                `;
             }
         }
 
-        // Allow Enter key to search
-        document.getElementById('truckSearchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchTruck();
-            }
-        });
-
-        // Pre-fill with example if URL has parameter (optional)
-        window.onload = function() {
-            // Check if there's a truck parameter in URL (for direct links)
-            const urlParams = new URLSearchParams(window.location.search);
-            const truckParam = urlParams.get('truck');
-            if (truckParam) {
-                document.getElementById('truckSearchInput').value = truckParam;
-                searchTruck();
-            }
+        // ==================== INSPECTION FUNCTIONS ====================
+        function showAllInspections() {
+            displayInspectionTable(inspectionData);
         }
-    </script>
-            <!-- Newsletter Subscription Function -->
-        <script>
+
+        function searchInspection() {
+            const term = document.getElementById('inspectionSearchInput').value.toUpperCase();
+            if (!term) { showAllInspections(); return; }
+            
+            const filtered = inspectionData.filter(i => 
+                (i.truck && i.truck.toUpperCase().includes(term)) ||
+                (i.trailer && i.trailer.toUpperCase().includes(term))
+            );
+            displayInspectionTable(filtered);
+        }
+
+        function clearInspectionSearch() {
+            document.getElementById('inspectionSearchInput').value = '';
+            showAllInspections();
+        }
+
+        function displayInspectionTable(data) {
+            const resultsDiv = document.getElementById('trackerResults');
+            resultsDiv.style.display = 'block';
+            
+            let html = '<h4><i class="fas fa-clipboard-check"></i> Inspection Records</h4>';
+            html += '<table class="data-table"><tr><th>Truck</th><th>Date</th><th>A/C</th><th>Trailer</th><th>Date</th><th>A/C</th></tr>';
+            
+            data.forEach(i => {
+                html += `<tr>
+                    <td><strong>${i.truck || '-'}</strong></td>
+                    <td>${i.truckDate || '-'}</td>
+                    <td>${i.truckAc || '-'}</td>
+                    <td>${i.trailer || '-'}</td>
+                    <td>${i.trailerDate || '-'}</td>
+                    <td>${i.trailerAc || '-'}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            resultsDiv.innerHTML = html;
+        }
+
+        // ==================== INSURANCE FUNCTIONS ====================
+        function showAllInsurance() {
+            displayInsuranceTable(insuranceData);
+        }
+
+        function searchInsurance() {
+            const term = document.getElementById('insuranceSearchInput').value.toUpperCase();
+            if (!term) { showAllInsurance(); return; }
+            
+            const filtered = insuranceData.filter(i => 
+                (i.truck && i.truck.toUpperCase().includes(term)) ||
+                (i.trailer && i.trailer.toUpperCase().includes(term))
+            );
+            displayInsuranceTable(filtered);
+        }
+
+        function clearInsuranceSearch() {
+            document.getElementById('insuranceSearchInput').value = '';
+            showAllInsurance();
+        }
+
+        function showExpiringInsurance() {
+            const today = new Date();
+            const threeMonths = new Date();
+            threeMonths.setMonth(today.getMonth() + 3);
+            
+            const expiring = insuranceData.filter(i => {
+                if (!i.truckDate) return false;
+                const parts = i.truckDate.split('.');
+                if (parts.length !== 3) return false;
+                const date = new Date(parts[2], parts[1]-1, parts[0]);
+                return date <= threeMonths && date >= today;
+            });
+            
+            displayInsuranceTable(expiring);
+        }
+
+        function displayInsuranceTable(data) {
+            const resultsDiv = document.getElementById('trackerResults');
+            resultsDiv.style.display = 'block';
+            
+            let html = '<h4><i class="fas fa-shield-alt"></i> Insurance Records</h4>';
+            html += '<table class="data-table"><tr><th>Truck</th><th>Date</th><th>Type</th><th>Trailer</th><th>Date</th><th>Type</th></tr>';
+            
+            data.forEach(i => {
+                html += `<tr>
+                    <td><strong>${i.truck || '-'}</strong></td>
+                    <td>${i.truckDate || '-'}</td>
+                    <td>${i.truckType || '-'}</td>
+                    <td>${i.trailer || '-'}</td>
+                    <td>${i.trailerDate || '-'}</td>
+                    <td>${i.trailerType || '-'}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            resultsDiv.innerHTML = html;
+        }
+
+        // ==================== SPEED GOVERNOR FUNCTIONS ====================
+        function showAllSpeed() {
+            displaySpeedTable(speedData);
+        }
+
+        function searchSpeed() {
+            const term = document.getElementById('speedSearchInput').value.toUpperCase();
+            if (!term) { showAllSpeed(); return; }
+            
+            const filtered = speedData.filter(s => 
+                (s.truck && s.truck.toUpperCase().includes(term)) ||
+                (s.trailer && s.trailer.toUpperCase().includes(term))
+            );
+            displaySpeedTable(filtered);
+        }
+
+        function clearSpeedSearch() {
+            document.getElementById('speedSearchInput').value = '';
+            showAllSpeed();
+        }
+
+        function displaySpeedTable(data) {
+            const resultsDiv = document.getElementById('trackerResults');
+            resultsDiv.style.display = 'block';
+            
+            let html = '<h4><i class="fas fa-tachometer-alt"></i> Speed Governor Records</h4>';
+            html += '<table class="data-table"><tr><th>Truck</th><th>Calibration Date</th><th>Trailer</th><th>Trailer Date</th></tr>';
+            
+            data.forEach(s => {
+                html += `<tr>
+                    <td><strong>${s.truck || '-'}</strong></td>
+                    <td>${s.truckDate || 'Not Set'}</td>
+                    <td>${s.trailer || '-'}</td>
+                    <td>${s.trailerDate || 'Not Set'}</td>
+                </tr>`;
+            });
+            
+            html += '</table>';
+            resultsDiv.innerHTML = html;
+        }
+
+        // ==================== WHATSAPP FORM ====================
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const pickup = document.getElementById('pickupLocation').value;
+            const delivery = document.getElementById('deliveryLocation').value;
+            const details = document.getElementById('additionalDetails').value;
+            
+            let message = `*New Quote Request*%0A%0A`;
+            message += `*Name:* ${name}%0A`;
+            message += `*Email:* ${email}%0A`;
+            message += `*Phone:* ${phone}%0A`;
+            message += `*Pickup:* ${pickup}%0A`;
+            message += `*Delivery:* ${delivery}%0A`;
+            if (details) message += `*Details:* ${details}%0A`;
+            
+            window.open(`https://wa.me/254720278970?text=${message}`, '_blank');
+        }
+
+        // ==================== NEWSLETTER ====================
         function subscribeNewsletter(event) {
             event.preventDefault();
             
-            const email = document.getElementById('newsletterEmail').value.trim();
-            const messageEl = document.getElementById('newsletterMessage');
+            const email = document.getElementById('newsletterEmail').value;
+            const msgEl = document.getElementById('newsletterMessage');
             
-            if (!email) {
-                messageEl.style.display = 'block';
-                messageEl.style.color = '#ff6b6b';
-                messageEl.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter your email address';
+            if (!email || !email.includes('@')) {
+                msgEl.style.display = 'block';
+                msgEl.style.color = '#ff6b6b';
+                msgEl.innerHTML = '<i class="fas fa-exclamation-circle"></i> Valid email required';
                 return;
             }
             
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                messageEl.style.display = 'block';
-                messageEl.style.color = '#ff6b6b';
-                messageEl.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email address';
-                return;
-            }
+            // Send to both emails
+            const subject = "New Newsletter Subscription";
+            const body = `New subscriber: ${email}`;
+            window.location.href = `mailto:info@daycantrading.com?cc=operations@daycantrading.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
-            // Format the message
-            const subject = "New Newsletter Subscription - Daycan Trading";
-            const body = `New Newsletter Subscription Request%0A%0AEmail: ${email}%0ADate: ${new Date().toLocaleString('en-KE')}%0A%0AThis email has been added to the newsletter list.`;
+            msgEl.style.display = 'block';
+            msgEl.style.color = '#ffd700';
+            msgEl.innerHTML = '<i class="fas fa-check-circle"></i> Opening email...';
             
-            // Create mailto link for both emails (BCC format)
-            // Primary: info@daycantrading.com, CC: operations@daycantrading.com
-            const mailtoLink = `mailto:info@daycantrading.com?cc=operations@daycantrading.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.replace(/%0A/g, '\n'))}`;
-            
-            // Open default email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            messageEl.style.display = 'block';
-            messageEl.style.color = '#ffd700';
-            messageEl.innerHTML = '<i class="fas fa-check-circle"></i> Opening your email app to complete subscription...';
-            
-            // Optional: Also send via WhatsApp as backup (uncomment if you want)
-            
-            const whatsappNumber = '254720278970'; // Daycan Trading WhatsApp number
-            const whatsappMessage = `*New Newsletter Subscription*%0A%0AEmail: ${email}%0A%0APlease add this email to the newsletter list.`;
-            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-            window.open(whatsappURL, '_blank');
-            
-            
-            // Reset form after 3 seconds
             setTimeout(() => {
                 document.getElementById('newsletterForm').reset();
-                messageEl.style.display = 'none';
+                msgEl.style.display = 'none';
             }, 5000);
         }
-        </script>
+
+        // Enter key for truck search
+        document.getElementById('truckSearchInput')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') searchTruck();
+        });
+    </script>
 </body>
-
 </html>
-
-
-
-
-
-

@@ -812,7 +812,7 @@
         <nav>
             <div class="logo">
                 <img src="images/logo.png" alt="Daycan Trading Logo">
-                <span>Bridging Port Mombasa to Your Doorstep</span>
+                <span>Bridging Mombasa Port to Your Doorstep</span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
@@ -930,7 +930,7 @@
         </div>
     </section>
 
-        <!-- Fleet Management Tracker Section -->
+    <!-- Fleet Management Tracker Section -->
     <section class="tracker" id="tracker">
         <div class="tracker-box">
             <h3><i class="fas fa-truck"></i> Daycan Fleet Management</h3>
@@ -953,7 +953,7 @@
             </div>
 
             <!-- Truck Location Search Section -->
-            <div id="truckSection" style="display: block;">
+            <div id="truckSection">
                 <div class="tracker-form">
                     <input type="text" id="truckSearchInput" placeholder="Enter Truck Number e.g., KDV 852U, KDB 987Z" value="">
                     <button onclick="searchTruck()"><i class="fas fa-search"></i> Track Now</button>
@@ -1040,7 +1040,7 @@
                 <h3>Contact Information</h3>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>NSSF Building, Mombasa, Kenya<br>P.O. Box 41140-80100</p>
+                    <p>NSSF Building 10th Floor room 1008<br>P.O. Box 41140-80100<br>Mombasa, Kenya</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
@@ -1230,6 +1230,22 @@
             { truck: "KDU 854U", truckDate: "", trailer: "ZJ 0688", trailerDate: "" }
         ];
 
+        // ==================== INITIALIZATION ====================
+        // Make sure truck tab is active on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure truck section is visible
+            document.getElementById('truckSection').style.display = 'block';
+            document.getElementById('inspectionSection').style.display = 'none';
+            document.getElementById('insuranceSection').style.display = 'none';
+            document.getElementById('speedSection').style.display = 'none';
+            
+            // Hide results initially
+            document.getElementById('trackerResults').style.display = 'none';
+            
+            // Set first tab as active
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        });
+
         // ==================== UTILITY FUNCTIONS ====================
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('nav-active');
@@ -1263,38 +1279,36 @@
             document.querySelectorAll('.tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
+            
+            // Find which button was clicked and add active class
             event.target.classList.add('active');
             
-            // Hide all sections first
+            // Hide all sections
             document.getElementById('truckSection').style.display = 'none';
             document.getElementById('inspectionSection').style.display = 'none';
             document.getElementById('insuranceSection').style.display = 'none';
             document.getElementById('speedSection').style.display = 'none';
             
             // Show the selected section
-            document.getElementById(tabName + 'Section').style.display = 'block';
-            
-            // Handle results display based on tab
-            const resultsDiv = document.getElementById('trackerResults');
-            
             if (tabName === 'trucks') {
-                // For trucks, hide results initially (wait for search)
-                resultsDiv.style.display = 'none';
+                document.getElementById('truckSection').style.display = 'block';
+                // Hide results for truck tab until search
+                document.getElementById('trackerResults').style.display = 'none';
                 // Clear previous search input
                 document.getElementById('truckSearchInput').value = '';
             } else if (tabName === 'inspection') {
-                // Show all inspection records
+                document.getElementById('inspectionSection').style.display = 'block';
                 showAllInspections();
             } else if (tabName === 'insurance') {
-                // Show all insurance records
+                document.getElementById('insuranceSection').style.display = 'block';
                 showAllInsurance();
             } else if (tabName === 'speed') {
-                // Show all speed records
+                document.getElementById('speedSection').style.display = 'block';
                 showAllSpeed();
             }
         }
 
-                // ==================== TRUCK LOCATION FUNCTIONS ====================
+        // ==================== TRUCK LOCATION FUNCTIONS ====================
         function searchTruck() {
             const input = document.getElementById('truckSearchInput').value.trim().toUpperCase();
             const resultsDiv = document.getElementById('trackerResults');
@@ -1357,6 +1371,7 @@
                 resultsDiv.innerHTML = html;
             }
         }
+
         // ==================== INSPECTION FUNCTIONS ====================
         function showAllInspections() {
             displayInspectionTable(inspectionData);
@@ -1434,7 +1449,7 @@
                 return date <= threeMonths && date >= today;
             });
             
-            displayInsuranceTable(expiring);
+            displayInsuranceTable(expiring.length > 0 ? expiring : insuranceData);
         }
 
         function displayInsuranceTable(data) {
